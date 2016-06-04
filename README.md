@@ -2,7 +2,8 @@
 一个自定义的pageControl，可以将默认的小圆点换成图片，并设置其间距；可以响应小圆点的点击事件...
 
 ##效果图
-加载中...
+![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_1.png?raw=true)
+![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_2.png?raw=true)
 
 ## 使用方法
 
@@ -57,7 +58,3 @@ he hai, hehai682@126.com
 ##License：
 
 RSPageControl is available under the MIT license. See the LICENSE file for more info.
-
-##后记：
-
------------->>>>>>>>>>> 人生无非是笑笑人家，再被人家笑笑而已...<<<<<<<<<<<<--------------

@@ -19,7 +19,7 @@ RSPageControlDelegate
 创建pageControl
 ```objective-c
     RSPageControl *pageControl = [[RSPageControl alloc] initWithFrame:CGRectMake(pX, pY, pWidth, pHeight) normalImage:[UIImage imageNamed:@"choice_carousel_default"] highlightedImage:[UIImage imageNamed:@"choice_carousel_current"] dotsNumber:4 dotLength:12 dotHeight:5 dotGap:30];
-    pageControl.delegate = self; // 需要响应touch事件时，加上这一句
+    pageControl.delegate = self; // 需要响应touch事件时，加上这一行
     [self.view addSubview:pageControl];
     self.pageControl = pageControl;
 ```
@@ -30,7 +30,7 @@ RSPageControlDelegate
     CGPoint point = scrollView.contentOffset;
     NSInteger index = round(point.x/scrollView.frame.size.width);
     
-    [self.pageControl setCurrentPage:index];
+    [self.pageControl setCurrentPage:index]; // 设置当前对应的圆点
 }
 ```
 

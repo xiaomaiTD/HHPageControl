@@ -3,7 +3,7 @@
 
 ##效果图
 ![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_1.png?raw=true)
-![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_3.png?raw=true)
+![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_3.gif?raw=true)
 
 ## 使用方法
 

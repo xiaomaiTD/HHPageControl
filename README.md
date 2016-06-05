@@ -7,7 +7,7 @@
 
 ## 使用方法
 
-将RSPageControl文件夹中的2个文件导入工程，在需要用到pageControl的控制器中导入头文件：
+将RSPageControl.h和RSPageControl.m 2个文件导入工程，在需要用到pageControl的控制器中导入头文件：
 ```objective-c
 #import "RSPageControl.h"
 ```
@@ -35,7 +35,7 @@ RSPageControlDelegate
 }
 ```
 
-3.点击小圆点时，执行此代理方法
+3.点击小圆点时，执行此代理方法 - (void)rs_pageControlDidStopAtIndex:
 ```objective-c
 - (void)rs_pageControlDidStopAtIndex:(NSInteger)index {
     NSLog(@"index:%ld", index);

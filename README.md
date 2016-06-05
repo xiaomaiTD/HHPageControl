@@ -17,7 +17,7 @@
 RSPageControlDelegate
 ```
 
-创建pageControl
+1.创建pageControl
 ```objective-c
     RSPageControl *pageControl = [[RSPageControl alloc] initWithFrame:CGRectMake(pX, pY, pWidth, pHeight) normalImage:[UIImage imageNamed:@"choice_carousel_default"] highlightedImage:[UIImage imageNamed:@"choice_carousel_current"] dotsNumber:4 dotLength:12 dotHeight:5 dotGap:30];
     pageControl.delegate = self; // 需要响应touch事件时，加上这一行
@@ -25,7 +25,7 @@ RSPageControlDelegate
     self.pageControl = pageControl;
 ```
 
-滚动视图发生滚动时执行该方法
+2.需要切换选中的小圆点时，给currentPage赋值(带注释的那一行)
 ```objective-c
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGPoint point = scrollView.contentOffset;
@@ -35,7 +35,7 @@ RSPageControlDelegate
 }
 ```
 
-点击小圆点时执行此方法中的操作
+3.点击小圆点时，执行此代理方法
 ```objective-c
 - (void)rs_pageControlDidStopAtIndex:(NSInteger)index {
     NSLog(@"index:%ld", index);

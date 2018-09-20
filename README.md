@@ -31,10 +31,7 @@ Include HHPageControl wherever you need it with the following line:
 ```objective-c
 #import <HHPageControl/HHPageControl.h>
 ```
-And you should abide by the agreement：
-```objective-c
-HHPageControlDelegate
-```
+And you should abide by the agreement `HHPageControlDelegate`.
 
 ## Author
 

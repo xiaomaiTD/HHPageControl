@@ -11,48 +11,36 @@
  *  自定义PageContrl控件，主要功能：
  *  1.实现了setCurrentPage事件
  *  2.dot点击事件
- *  注：如果要使用dot的点击事件，需使用 RSPageControlDelegate
+ *  注：如果要使用dot的点击事件，需使用 HHPageControlDelegate
  */
 
 #import <UIKit/UIKit.h>
 
+@class HHPageControl;
 @protocol HHPageControlDelegate <NSObject>
 
-/**
- *  点击具体的 dot 时，调用此方法
- *
- *  @param index 点的下标
- */
  @optional
-- (void)rs_pageControlDidStopAtIndex:(NSInteger)index;
+/// 点击具体的 dot 时，调用此方法
+- (void)hh_pageControl:(HHPageControl *)pageControl didClickDot:(NSInteger)dotIndex;
 
 @end
 
 @interface HHPageControl : UIView
 
-/**
- *  代理对象
- */
-@property (nonatomic , weak) id<HHPageControlDelegate> delegate;
-/**
- *  总页数
- */
-@property (nonatomic , assign)NSInteger pageNumbers;
-/**
- *  当前页码
- */
-@property (nonatomic , assign)NSInteger currentPage;
+/// 代理对象
+@property (nonatomic, weak) id<HHPageControlDelegate> delegate;
+/// 当前页码
+@property (nonatomic, assign) NSInteger currentPage;
 
 /**
  *  创建方法
  *
- *  @param frame   frame
- *  @param nImage  正常状态的dot图片
- *  @param hImage  选中状态的dot图片
- *  @param pageNum 总页数:可在此传0，后续单独设置，如:self.pageNumbers = xxx
- *  @param length  单个dot图片长度
- *  @param height  单个dot图片高度
- *  @param gap     dot图片间距
+ *  @param frame   frame(必传)
+ *  @param nImage  正常状态的dot图片(必传)
+ *  @param hImage  选中状态的dot图片(必传)
+ *  @param pageNum 总页数(必传)
+ *  @param size    图片size(若传 CGSizeZero，则默认为图片的 size)
+ *  @param gap     图片间距(若传 0，则默认为 10)
  *
  *  @return RSPageControl对象
  */
@@ -60,8 +48,7 @@
                   normalImage:(UIImage *)nImage
              highlightedImage:(UIImage *)hImage
                    dotsNumber:(NSInteger)pageNum
-                    dotLength:(CGFloat)length
-                    dotHeight:(CGFloat)height
+                      dotSize:(CGSize)size
                        dotGap:(CGFloat)gap;
 
 @end

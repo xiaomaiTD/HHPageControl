@@ -9,42 +9,54 @@
 
 #import "HHPageControl.h"
 
+static const NSInteger HHPageControl_BaseTag = 2018092001;
+
 @interface HHPageControl ()
 
+/// 总页数
+@property (nonatomic , assign)NSInteger pageNumbers;
+/// 未选中的图片
 @property (nonatomic , strong)UIImage *normalDotImage;
+/// 选中的图片
 @property (nonatomic , strong)UIImage *highlightedDotImage;
-@property (nonatomic , assign)CGFloat dotLength;  // dot图片长度
-@property (nonatomic , assign)CGFloat dotHeight;  // dot图片高度
-@property (nonatomic , assign)CGFloat dotGap;     // dot图片间距
+/// dot图片长度
+@property (nonatomic , assign)CGFloat dotLength;
+/// dot图片高度
+@property (nonatomic , assign)CGFloat dotHeight;
+/// dot图片间距
+@property (nonatomic , assign)CGFloat dotGap;
 
 @end
 
 
 @implementation HHPageControl {
-    CGFloat tmpX; // 第一个点在self中的x坐标
-    CGFloat tmpY; // 第一个点在self中的Y坐标
+    CGFloat tmpX;           // 第一个点在self中的x坐标
+    CGFloat tmpY;           // 第一个点在self中的Y坐标
     NSInteger currentIndex; // 当前选中的下标
-    CGRect tmpFrame; // pageControl的frame
+    CGRect tmpFrame;        // pageControl的frame
 }
 
-- (id)initWithFrame:(CGRect)frame
-        normalImage:(UIImage *)nImage
-   highlightedImage:(UIImage *)hImage
-         dotsNumber:(NSInteger)pageNum
-          dotLength:(CGFloat)length
-          dotHeight:(CGFloat)height
-             dotGap:(CGFloat)gap {
-    
+#pragma mark - init
+
+- (instancetype)initWithFrame:(CGRect)frame
+                  normalImage:(UIImage *)nImage
+             highlightedImage:(UIImage *)hImage
+                   dotsNumber:(NSInteger)pageNum
+                      dotSize:(CGSize)size
+                       dotGap:(CGFloat)gap
+{
     if (self = [super initWithFrame:frame]) {
         
         self.userInteractionEnabled = YES;
         self.backgroundColor = [UIColor clearColor];
         
-        self.dotGap = gap;
-        self.dotLength = length;
-        self.dotHeight = height;
         self.normalDotImage = nImage;
         self.highlightedDotImage = hImage;
+        
+        self.dotLength = size.width > 0 ? size.width : nImage.size.width;
+        self.dotHeight = size.height > 0 ? size.height : nImage.size.height;
+        self.dotGap = MAX(10, gap);
+        
         tmpFrame = frame;
         
         if (pageNum) {
@@ -54,14 +66,44 @@
     return self;
 }
 
-- (void)dotDidTouched:(id)sender {
-    if (_delegate && [_delegate respondsToSelector:@selector(rs_pageControlDidStopAtIndex:)]) {
-        
-        [self setCurrentPage:[[sender view] tag] - 100];
-        
-        [_delegate rs_pageControlDidStopAtIndex:[[sender view] tag] - 100];
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    if (_normalDotImage || _highlightedDotImage) {
+        for (int i = 0 ; i < _pageNumbers; i++) {
+            
+            UIImageView *dot = self.subviews[i];
+            
+            if (i == currentIndex) {
+                
+                dot.frame = CGRectMake(tmpX + (_dotGap + _dotHeight) * i, tmpY, _dotLength, _dotHeight);
+            } else if(i < currentIndex) {
+                
+                dot.frame = CGRectMake(tmpX + (_dotGap + _dotHeight) * i, tmpY, _dotHeight, _dotHeight);
+            } else {
+                
+                dot.frame = CGRectMake(tmpX + (_dotGap + _dotHeight) * (i - 1) + (_dotGap + _dotLength), tmpY, _dotHeight, _dotHeight);
+            }
+        }
     }
 }
+
+#pragma mark - Action
+
+- (void)dotDidTouched:(id)sender {
+    
+    if (([[sender view] tag] - HHPageControl_BaseTag) == currentIndex) {
+        return;
+    }
+    
+    [self setCurrentPage:[[sender view] tag] - HHPageControl_BaseTag];
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(hh_pageControl:didClickDot:)]) {
+        [_delegate hh_pageControl:self didClickDot:[[sender view] tag] - HHPageControl_BaseTag];
+    }
+}
+
+#pragma mark - Setter & Getter
 
 - (void)setCurrentPage:(NSInteger)page {
     
@@ -85,35 +127,6 @@
     [self layoutSubviews];
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-
-    if (_normalDotImage || _highlightedDotImage) {
-        for (int i = 0 ; i < _pageNumbers; i++) {
-            
-            UIImageView *dot = self.subviews[i];
-            
-            if (i == currentIndex) {
-                
-                dot.frame = CGRectMake(tmpX + (_dotGap + _dotHeight) * i, tmpY, _dotLength, _dotHeight);
-            } else if(i < currentIndex) {
-                
-                dot.frame = CGRectMake(tmpX + (_dotGap + _dotHeight) * i, tmpY, _dotHeight, _dotHeight);
-            } else {
-                
-                dot.frame = CGRectMake(tmpX + (_dotGap + _dotHeight) * (i - 1) + (_dotGap + _dotLength), tmpY, _dotHeight, _dotHeight);
-            }
-        }
-    }
-}
-
-/**
- *  调用时机：
- *  ①在创建方法中为pageNumbers赋值；
- *  ②创建完成后，单独为PageNummbers赋值。
- *
- *  @param pageNumbers 总页数
- */
 - (void)setPageNumbers:(NSInteger)pageNumbers {
     _pageNumbers = pageNumbers;
     
@@ -131,7 +144,7 @@
             dotView.frame = CGRectMake(tmpX, tmpY, _dotLength, _dotHeight);
         }
         
-        dotView.tag = 100 + i;
+        dotView.tag = HHPageControl_BaseTag + i;
         if (i == 0) {
             dotView.image = _highlightedDotImage;
         } else {

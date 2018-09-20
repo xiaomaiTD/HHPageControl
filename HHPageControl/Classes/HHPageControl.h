@@ -1,6 +1,6 @@
 //
-//  RSPageControl.h
-//  
+//  HHPageControl.h
+//  原 RSPageControl.h
 //
 //  Created by hehai on 2016/5/28.
 //  Copyright (c) 2016年 hehai. All rights reserved.
@@ -16,7 +16,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol RSPageControlDelegate <NSObject>
+@protocol HHPageControlDelegate <NSObject>
 
 /**
  *  点击具体的 dot 时，调用此方法
@@ -28,12 +28,12 @@
 
 @end
 
-@interface RSPageControl : UIView
+@interface HHPageControl : UIView
 
 /**
  *  代理对象
  */
-@property (nonatomic , weak) id<RSPageControlDelegate> delegate;
+@property (nonatomic , weak) id<HHPageControlDelegate> delegate;
 /**
  *  总页数
  */

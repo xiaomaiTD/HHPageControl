@@ -1,15 +1,15 @@
 //
-//  RSPageControl.h
-//
+//  HHPageControl.h
+//  原 RSPageControl.h
 //
 //  Created by hehai on 2016/5/28.
 //  Copyright (c) 2016年 hehai. All rights reserved.
 //  GitHub:https://github.com/riversea2015
 //
 
-#import "RSPageControl.h"
+#import "HHPageControl.h"
 
-@interface RSPageControl ()
+@interface HHPageControl ()
 
 @property (nonatomic , strong)UIImage *normalDotImage;
 @property (nonatomic , strong)UIImage *highlightedDotImage;
@@ -20,7 +20,7 @@
 @end
 
 
-@implementation RSPageControl {
+@implementation HHPageControl {
     CGFloat tmpX; // 第一个点在self中的x坐标
     CGFloat tmpY; // 第一个点在self中的Y坐标
     NSInteger currentIndex; // 当前选中的下标

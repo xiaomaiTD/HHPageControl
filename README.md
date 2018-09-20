@@ -1,3 +1,35 @@
+# HHPageControl
+
+[![CI Status](https://img.shields.io/travis/riversea2015/HHPageControl.svg?style=flat)](https://travis-ci.org/riversea2015/HHPageControl)
+[![Version](https://img.shields.io/cocoapods/v/HHPageControl.svg?style=flat)](https://cocoapods.org/pods/HHPageControl)
+[![License](https://img.shields.io/cocoapods/l/HHPageControl.svg?style=flat)](https://cocoapods.org/pods/HHPageControl)
+[![Platform](https://img.shields.io/cocoapods/p/HHPageControl.svg?style=flat)](https://cocoapods.org/pods/HHPageControl)
+
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+HHPageControl is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'HHPageControl'
+```
+
+## Author
+
+riversea2015, hehai682@126.com
+
+## License
+
+HHPageControl is available under the MIT license. See the LICENSE file for more info.
+
+---
+
 # RSPageControl
 一个自定义的pageControl，可以将默认的小圆点换成图片，并设置其间距；可以响应小圆点的点击事件...
 
@@ -30,7 +62,7 @@ RSPageControlDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGPoint point = scrollView.contentOffset;
     NSInteger index = round(point.x/scrollView.frame.size.width);
-    
+
     [self.pageControl setCurrentPage:index]; // 设置当前对应的圆点
 }
 ```
@@ -39,15 +71,15 @@ RSPageControlDelegate
 ```objective-c
 - (void)rs_pageControlDidStopAtIndex:(NSInteger)index {
     NSLog(@"index:%ld", index);
-    
+
     // 以下为切换图片的方法(由使用者自定义)
     CGFloat height = _scrollView.frame.size.height;
     CGFloat width = _scrollView.frame.size.width;
     CGFloat originX = _scrollView.frame.size.width*index;
     CGFloat originY = 0;
-    
+
     CGRect rect = CGRectMake(originX, originY, width, height);
-    
+
     [_scrollView scrollRectToVisible:rect animated:NO];
 }
 ```

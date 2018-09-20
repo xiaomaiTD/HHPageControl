@@ -1,0 +1,16 @@
+PODS:
+  - HHPageControl (0.1.0)
+
+DEPENDENCIES:
+  - HHPageControl (from `../`)
+
+EXTERNAL SOURCES:
+  HHPageControl:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HHPageControl: b28188c5a9febe23c09cc12022d0aab238d22153
+
+PODFILE CHECKSUM: 842b50ead7b49aca9a0095b446198e9f57853864
+
+COCOAPODS: 1.5.3

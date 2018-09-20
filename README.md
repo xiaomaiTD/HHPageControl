@@ -1,4 +1,4 @@
-# HHPageControl
+# HHPageControl(RSPageControl)
 
 [![CI Status](https://img.shields.io/travis/riversea2015/HHPageControl.svg?style=flat)](https://travis-ci.org/riversea2015/HHPageControl)
 [![Version](https://img.shields.io/cocoapods/v/HHPageControl.svg?style=flat)](https://cocoapods.org/pods/HHPageControl)
@@ -8,6 +8,11 @@
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## ScreenShot
+
+![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_1.png?raw=true)
+![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_3.gif?raw=true)
 
 ## Requirements
 
@@ -20,6 +25,17 @@ it, simply add the following line to your Podfile:
 pod 'HHPageControl'
 ```
 
+## Use
+
+Include HHPageControl wherever you need it with the following line:
+```objective-c
+#import <HHPageControl/HHPageControl.h>
+```
+And you should abide by the agreement：
+```objective-c
+HHPageControlDelegate
+```
+
 ## Author
 
 riversea2015, hehai682@126.com
@@ -30,24 +46,7 @@ HHPageControl is available under the MIT license. See the LICENSE file for more 
 
 ---
 
-# RSPageControl
-一个自定义的pageControl，可以将默认的小圆点换成图片，并设置其间距；可以响应小圆点的点击事件...
-
-##效果图
-![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_1.png?raw=true)
-![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_3.gif?raw=true)
-
 ## 使用方法
-
-将RSPageControl.h和RSPageControl.m 2个文件导入工程，在需要用到pageControl的控制器中导入头文件：
-```objective-c
-#import "RSPageControl.h"
-```
-
-如果需要响应小圆点的点击事件，需遵守协议：
-```objective-c
-RSPageControlDelegate
-```
 
 1.创建pageControl
 ```objective-c
@@ -83,10 +82,3 @@ RSPageControlDelegate
     [_scrollView scrollRectToVisible:rect animated:NO];
 }
 ```
-##作者信息：
-
-he hai, hehai682@126.com
-
-##License：
-
-RSPageControl is available under the MIT license. See the LICENSE file for more info.

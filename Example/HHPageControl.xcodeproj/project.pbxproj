@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		1CCD7158E54CB8B983D7BD29 /* Pods-HHPageControl_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHPageControl_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HHPageControl_Example/Pods-HHPageControl_Example.release.xcconfig"; sourceTree = "<group>"; };
 		44E203F99194ACCD2B65D472 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		5EBBFF55454F6D919774C655 /* HHPageControl.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HHPageControl.podspec; path = ../HHPageControl.podspec; sourceTree = "<group>"; };
+		5EBBFF55454F6D919774C655 /* HHPageControl.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HHPageControl.podspec; path = ../HHPageControl.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6003F58A195388D20070C39A /* HHPageControl_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHPageControl_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };

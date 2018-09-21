@@ -11,7 +11,9 @@
 
 拷贝 repo 到本地，切换到 Example 目录下，终端运行 `pod install` 后就可以正常使用了^_^
 
-## Demo的屏幕截图（因为重构后没找到原来的图，所以实际项目中展示的略有差异^_^）
+## 屏幕截图
+
+以下为之前 Demo的截图，因为重构后没找到原来的图，所以实际项目中展示的略有差异^_^
 
 ![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_1.png?raw=true)
 ![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_3.gif?raw=true)
@@ -25,7 +27,7 @@ pod 'HHPageControl'
 
 ## 使用方法
 
-使用时需要以下边的方式导入头文件，如果需要让 HHPageCOntrol 响应点击事件，则需要自己设置 `touchAction` 这个block.
+使用时需要以下边的方式导入头文件，如果需要让 HHPageControl 响应点击事件，则需要自己设置 `touchAction` 这个block.
 ```objective-c
 #import <HHPageControl/HHPageControl.h>
 ```

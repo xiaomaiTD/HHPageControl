@@ -5,6 +5,35 @@
 [![License](https://img.shields.io/cocoapods/l/HHPageControl.svg?style=flat)](https://cocoapods.org/pods/HHPageControl)
 [![Platform](https://img.shields.io/cocoapods/p/HHPageControl.svg?style=flat)](https://cocoapods.org/pods/HHPageControl)
 
+## 中文介绍
+
+## 示例工程
+
+拷贝 repo 到本地，切换到 Example 目录下，终端运行 `pod install` 后就可以正常使用了^_^
+
+## Demo的屏幕截图（因为重构后没找到原来的图，所以实际项目中展示的略有差异^_^）
+
+![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_1.png?raw=true)
+![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_3.gif?raw=true)
+
+## 安装
+
+HHPageControl 支持 [CocoaPods](https://cocoapods.org)，集成非常简单，只需要在你的 Podfile 文件中加上下边的语句，当然，你也可以直接把源文件拷贝到项目里^_^
+```ruby
+pod 'HHPageControl'
+```
+
+## 使用方法
+
+使用时需要以下边的方式导入头文件，如果需要让 HHPageCOntrol 响应点击事件，则需要自己设置 `touchAction` 这个block.
+```objective-c
+#import <HHPageControl/HHPageControl.h>
+```
+
+---
+
+## 英文介绍
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -13,8 +42,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_1.png?raw=true)
 ![Mou icon](https://github.com/riversea2015/RSPageControl/blob/master/pageControl_3.gif?raw=true)
-
-## Requirements
 
 ## Installation
 
@@ -27,7 +54,7 @@ pod 'HHPageControl'
 
 ## Use
 
-Include HHPageControl wherever you need it with the following line, and you should abide by the agreement `HHPageControlDelegate`.
+Include HHPageControl wherever you need it with the following line.
 ```objective-c
 #import <HHPageControl/HHPageControl.h>
 ```

@@ -98,8 +98,8 @@ static const NSInteger HHPageControl_BaseTag = 2018092001;
     
     [self setCurrentPage:[[sender view] tag] - HHPageControl_BaseTag];
     
-    if (_delegate && [_delegate respondsToSelector:@selector(hh_pageControl:didClickDot:)]) {
-        [_delegate hh_pageControl:self didClickDot:[[sender view] tag] - HHPageControl_BaseTag];
+    if (_touchAction) {
+        _touchAction([[sender view] tag] - HHPageControl_BaseTag);
     }
 }
 
@@ -151,7 +151,8 @@ static const NSInteger HHPageControl_BaseTag = 2018092001;
             dotView.image = _normalDotImage;
         }
         
-        UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dotDidTouched:)];
+        UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                            action:@selector(dotDidTouched:)];
         [dotView addGestureRecognizer:gestureRecognizer];
         [self addSubview:dotView];
     }

@@ -15,7 +15,6 @@
 
 @interface HHViewController ()
 <
-HHPageControlDelegate,
 UIScrollViewDelegate
 >
 
@@ -95,19 +94,19 @@ UIScrollViewDelegate
                                                  dotsNumber:_imgNameArr.count
                                                     dotSize:CGSizeMake(20, 20)
                                                      dotGap:30];
-    self.pageControl.delegate = self;
     [self.view addSubview:self.pageControl];
-}
-
-- (void)hh_pageControl:(HHPageControl *)pageControl didClickDot:(NSInteger)dotIndex {
     
-    CGFloat height = _mainScrollView.frame.size.height;
-    CGFloat width = _mainScrollView.frame.size.width;
-    CGFloat originX = _mainScrollView.frame.size.width * dotIndex;
-    CGFloat originY = 0;
-    CGRect rect = CGRectMake(originX, originY, width, height);
-    
-    [_mainScrollView scrollRectToVisible:rect animated:YES];
+    __weak typeof(self) weakSelf = self;
+    self.pageControl.touchAction = ^(NSInteger dotIndex) {
+        
+        CGFloat height = weakSelf.mainScrollView.frame.size.height;
+        CGFloat width = weakSelf.mainScrollView.frame.size.width;
+        CGFloat originX = weakSelf.mainScrollView.frame.size.width * dotIndex;
+        CGFloat originY = 0;
+        CGRect rect = CGRectMake(originX, originY, width, height);
+        
+        [weakSelf.mainScrollView scrollRectToVisible:rect animated:YES];
+    };
 }
 
 @end

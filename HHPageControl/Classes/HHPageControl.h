@@ -16,21 +16,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class HHPageControl;
-@protocol HHPageControlDelegate <NSObject>
-
- @optional
-/// 点击具体的 dot 时，调用此方法
-- (void)hh_pageControl:(HHPageControl *)pageControl didClickDot:(NSInteger)dotIndex;
-
-@end
+typedef void(^HHTouchBlock)(NSInteger dotIndex);
 
 @interface HHPageControl : UIView
 
-/// 代理对象
-@property (nonatomic, weak) id<HHPageControlDelegate> delegate;
 /// 当前页码
 @property (nonatomic, assign) NSInteger currentPage;
+/// 点击事件回调
+@property (nonatomic, copy) HHTouchBlock touchAction;
 
 /**
  *  创建方法
